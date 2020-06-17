@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Header from "./Header";
-import Home from "../Routes/Home";
+import Home from "../Routes/Home/index";
 import Product from "../Routes/Product";
 import Company from "../Routes/Company";
 
