@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, withRouter } from "react-router-dom";
+import Burger from "./Buger";
+// import RightMenu from "./RightMenu";
 
 const Header = styled.header`
   position: fixed;
@@ -9,46 +10,21 @@ const Header = styled.header`
   width: 100vw;
   height: 50px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
   background-color: black;
   color: white;
   box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
 `;
+const Logo = styled.div``;
 
-const List = styled.ul`
-  display: flex;
-`;
-
-const Item = styled.li`
-  width: 100px;
-  text-align: center;
-  border-bottom: 3px solid ${(props) => (props.current ? "red" : "transparent")};
-  transition: border-bottom 0.3s ease-in-out;
-`;
-
-const Slink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-`;
-
-const HeaderC = ({ location: { pathname } }) => (
+const HeaderC = () => (
   <Header>
-    <List>
-      <Item current={pathname === "/"}>
-        <Slink to="/">HOME</Slink>
-      </Item>
-      <Item current={pathname === "/product"}>
-        <Slink to="/product">PRODUCT</Slink>
-      </Item>
-      <Item current={pathname === "/company"}>
-        <Slink to="/company">COMPANY</Slink>
-      </Item>
-    </List>
+    <Logo>이공제이</Logo>
+    <Burger></Burger>
+    {/* <RightMenu></RightMenu> */}
   </Header>
 );
 
-export default withRouter(HeaderC);
+export default HeaderC;
