@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const Header = styled.header`
   position: fixed;
@@ -9,6 +9,7 @@ const Header = styled.header`
   width: 100vw;
   height: 50px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   padding: 0px 10px;
   background-color: black;
@@ -23,6 +24,8 @@ const List = styled.ul`
 const Item = styled.li`
   width: 100px;
   text-align: center;
+  border-bottom: 3px solid ${(props) => (props.current ? "red" : "transparent")};
+  transition: border-bottom 0.3s ease-in-out;
 `;
 
 const Slink = styled(Link)`
@@ -32,18 +35,20 @@ const Slink = styled(Link)`
   height: 50px;
 `;
 
-export default () => (
+const HeaderC = ({ location: { pathname } }) => (
   <Header>
     <List>
-      <Item>
-        <Slink to="/">Movies</Slink>
+      <Item current={pathname === "/"}>
+        <Slink to="/">HOME</Slink>
       </Item>
-      <Item>
-        <Slink to="/tv">TVShows</Slink>
+      <Item current={pathname === "/product"}>
+        <Slink to="/product">PRODUCT</Slink>
       </Item>
-      <Item>
-        <Slink to="/search">Search</Slink>
+      <Item current={pathname === "/company"}>
+        <Slink to="/company">COMPANY</Slink>
       </Item>
     </List>
   </Header>
 );
+
+export default withRouter(HeaderC);

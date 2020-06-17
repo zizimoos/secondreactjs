@@ -7,16 +7,16 @@ import {
 } from "react-router-dom";
 import Header from "./Header";
 import Home from "../Routes/Home";
-import TV from "../Routes/TV";
-import Search from "../Routes/Search";
+import Product from "../Routes/Product";
+import Company from "../Routes/Company";
 
 export default () => (
   <Router>
     <Header></Header>
     <Switch>
       <Route path="/" exact component={Home}></Route>
-      <Route path="/tv" component={TV}></Route>
-      <Route path="/search" component={Search}></Route>
+      <Route path="/product" component={Product}></Route>
+      <Route path="/company" component={Company}></Route>
       <Redirect from="*" to="/"></Redirect>
     </Switch>
   </Router>
